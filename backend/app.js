@@ -24,7 +24,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
+  windowMs: 60 * 60 * 1000, // 60 minutes
   max: 100, // limit each IP to 100 requests per windowMs
 });
 
@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-const whitelist = ['http://localhost:3001'];
+const whitelist = ['http://localhost:3001', '*'];
 const corsOptions = {
   origin: whitelist,
   credentials: true,
