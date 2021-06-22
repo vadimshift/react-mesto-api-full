@@ -49,7 +49,7 @@ app.use(cookieParser());
 app.use(limiter);
 app.use(helmet());
 app.use(requestLogger);
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 app.post('/signin', validateAuthentication, login);
 app.post('/signup', validateUserBody, createUser);
