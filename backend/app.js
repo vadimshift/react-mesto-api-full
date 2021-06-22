@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-const whitelist = ['http://localhost:3001', '*', 'http://217.28.231.174'];
+const whitelist = ['http://localhost:3001', 'http://localhost:3000', '*', 'http://217.28.231.174:3000'];
 const corsOptions = {
   origin: whitelist,
   credentials: true,
