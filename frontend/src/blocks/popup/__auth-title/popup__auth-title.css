@@ -1,0 +1,11 @@
+.popup__auth-title {
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 60px;
+}

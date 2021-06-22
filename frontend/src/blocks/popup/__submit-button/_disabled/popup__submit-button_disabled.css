@@ -1,0 +1,4 @@
+.popup__submit-button_disabled {
+  background: #E5E5E5;
+  cursor: default;
+}

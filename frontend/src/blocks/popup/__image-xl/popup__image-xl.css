@@ -1,0 +1,10 @@
+.popup__image-xl {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1024px) {
+  .popup__image-xl {
+    width: 100%;
+  }
+}

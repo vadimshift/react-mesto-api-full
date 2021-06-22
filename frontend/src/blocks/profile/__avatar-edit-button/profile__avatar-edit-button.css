@@ -1,0 +1,30 @@
+.profile__avatar-edit-button {
+  border: none;
+  outline: none;
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  background: transparent;
+  background-color: #000000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile__avatar-edit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.profile__avatar-edit-button:hover::before {
+  opacity: .8;
+  background-image: url('../../../images/pen.svg');
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+}

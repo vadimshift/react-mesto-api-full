@@ -1,0 +1,17 @@
+.element__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 246px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 25px;
+  padding-bottom: 31px;
+}
+
+@media screen and (max-width: 880px) {
+  .element__title {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}

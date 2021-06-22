@@ -1,0 +1,21 @@
+.auth-page__input{
+  width: 358px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #CCCCCC;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #CCCCCC;
+  margin-top: 50px;
+  padding-bottom: 13px;
+}
+
+.auth-page__input:last-of-type {
+  margin-top: 30px;
+}
