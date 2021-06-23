@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-const whitelist = ['http://localhost:3001', 'http://localhost:3000', '*', 'http://217.28.231.174:3000'];
+const whitelist = ['http://localhost:3001', 'http://localhost:3000'];
 const corsOptions = {
   origin: whitelist,
   credentials: true,
@@ -50,6 +50,12 @@ app.use(limiter);
 app.use(helmet());
 app.use(requestLogger);
 app.use(cors(corsOptions));
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', validateAuthentication, login);
 app.post('/signup', validateUserBody, createUser);
