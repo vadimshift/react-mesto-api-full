@@ -145,7 +145,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const [userEmail, setUserEmail] = useState({});
+  const [userEmail, setUserEmail] = useState();
 
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
 

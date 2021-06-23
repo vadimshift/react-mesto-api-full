@@ -12,6 +12,9 @@ function AddPlacePopup(props) {
       placeName,
       placeLink,
     });
+    // очищаем инпуты
+    setPlaceLink("");
+    setPlaceName("")
   }
 
   const hendleChangePlaceName = (e) => {
