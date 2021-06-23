@@ -1,8 +1,8 @@
 const apiOptions = {
-  userUrl: "http://api.vadim-21.nomoredomains.club/users/me",
-  userAvatar: "http://api.vadim-21.nomoredomains.club/users/me/avatar",
-  cardsUrl: "http://api.vadim-21.nomoredomains.club/cards",
-  cardsUrlLike: "http://api.vadim-21.nomoredomains.club/cards/likes",
+  userUrl: "https://api.vadim-21.nomoredomains.club/users/me",
+  userAvatar: "https://api.vadim-21.nomoredomains.club/users/me/avatar",
+  cardsUrl: "https://api.vadim-21.nomoredomains.club/cards",
+  cardsUrlLike: "https://api.vadim-21.nomoredomains.club/cards/likes",
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
   },

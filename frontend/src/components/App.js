@@ -17,7 +17,6 @@ import Footer from "./Footer";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
-  console.log(currentUser)
   useEffect(() => {
     api
       .getProfileInfo()
