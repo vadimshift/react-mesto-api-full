@@ -176,18 +176,18 @@ function App() {
       .authorization(data)
       .then((data) => {
         setLoggedIn(true);
-        localStorage.setItem("token", document.cookie);       
+        /* localStorage.setItem("token", document.cookie); */       
       })
       .catch((err) => console.log(err));
   };
 
   const checkToken = () => {
-    const token = localStorage.getItem("token");  
-    if (!token) {
+    /* const token = localStorage.getItem("token");   */
+    if (!loggedIn) {
       return;
-    }
+    }    
     apiAuth
-      .getContent(document.cookie)
+      .getContent(/* document.cookie */)
       .then((data) => {
         setCurrentUser(data);
         setUserEmail(data.email);
