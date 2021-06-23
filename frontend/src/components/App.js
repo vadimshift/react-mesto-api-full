@@ -176,14 +176,14 @@ function App() {
       .authorization(data)
       .then((data) => {
         setLoggedIn(true);
-        /* localStorage.setItem("token", document.cookie); */       
+        localStorage.setItem("token", document.cookie);       
       })
       .catch((err) => console.log(err));
   };
 
   const checkToken = () => {
-    /* const token = localStorage.getItem("token");   */
-    if (!loggedIn) {
+    const token = localStorage.getItem("token"); 
+    if (!token) {
       return;
     }    
     apiAuth
