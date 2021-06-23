@@ -176,18 +176,19 @@ function App() {
       .authorization(data)
       .then((data) => {
         setLoggedIn(true);
-        localStorage.setItem("token", document.cookie);       
+        localStorage.setItem("token", 'jwt');       
       })
       .catch((err) => console.log(err));
   };
+
 
   const checkToken = () => {
     const token = localStorage.getItem("token"); 
     if (!token) {
       return;
-    }    
+    }     
     apiAuth
-      .getContent(/* document.cookie */)
+      .getContent()
       .then((data) => {
         setCurrentUser(data);
         setUserEmail(data.email);
