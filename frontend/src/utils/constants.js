@@ -1,13 +1,8 @@
 const apiOptions = {
-  userUrl: "http://localhost:3000/users/me",
-  userAvatar: "http://localhost:3000/users/me/avatar",
-  cardsUrl: "http://localhost:3000/cards",
-  cardsUrlLike: "http://localhost:3000/cards/likes",
-  //cardsUrlLike: "http://localhost:3000/cards/:cardId/likes",
-  /* headers: {
-    authorization: "35068309-e434-48d0-a214-95dc9b740ad7",
-    "Content-Type": "application/json; charset=UTF-8",
-  }, */
+  userUrl: "http://api.vadim-21.nomoredomains.club/users/me",
+  userAvatar: "http://api.vadim-21.nomoredomains.club/users/me/avatar",
+  cardsUrl: "http://api.vadim-21.nomoredomains.club/cards",
+  cardsUrlLike: "http://api.vadim-21.nomoredomains.club/cards/likes",
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
   },

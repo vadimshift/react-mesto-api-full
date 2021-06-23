@@ -1,4 +1,4 @@
-export const BASE_URL = "http://api.vadim-21.nomoredomains.club/";
+export const BASE_URL = "http://api.vadim-21.nomoredomains.club";
 
 const headers = {
   Accept: "application/json",
