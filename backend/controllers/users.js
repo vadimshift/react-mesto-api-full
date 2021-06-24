@@ -23,8 +23,9 @@ function getUserById(req, res, next) {
     .then((user) => {
       res.send(user);
     })
+    .orFail(() => new Error('NotFound'))
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.message === 'NotFound') {
         throw new NotFoundError('Пользователь по указанному id не найден');
       }
     })
@@ -32,12 +33,7 @@ function getUserById(req, res, next) {
 }
 
 function getUser(req, res, next) {
-  // извлекаем токен
-  const token = req.cookies.jwt;
-  // извлекаем id пользователя
-  const decoded = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
-  // ищем пользователя в БД по id
-  User.findById(decoded._id)
+  User.findById(req.user._id)
     .then((data) => res.send(data))
     .catch((err) => {
       if (err.name === 'CastError') {

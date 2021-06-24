@@ -4,7 +4,6 @@ class Api {
   constructor(apiOptions) {
     this._userUrl = apiOptions.userUrl;
     this._cardsUrl = apiOptions.cardsUrl;
-    this._cardsUrlLike = apiOptions.cardsUrlLike;
     this._userAvatar = apiOptions.userAvatar;
     this._headers = apiOptions.headers;
     this._credentials = apiOptions.credentials;
@@ -64,7 +63,7 @@ class Api {
   }
 
   setLikeCard(id) {
-    return fetch(`${this._cardsUrlLike}/${id}`, {
+    return fetch(`${this._cardsUrl}/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
       credentials: this._credentials,
@@ -72,7 +71,7 @@ class Api {
   }
 
   delLikeCard(id) {
-    return fetch(`${this._cardsUrlLike}/${id}`, {
+    return fetch(`${this._cardsUrl}/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
       credentials: this._credentials,

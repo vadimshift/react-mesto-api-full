@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
-const whitelist = ['http://vadim-21.nomoredomains.club', 'https://vadim-21.nomoredomains.club', 'http://localhost:3000'];
+const whitelist = ['http://vadim-21.nomoredomains.club', 'https://vadim-21.nomoredomains.club', 'http://localhost:3000', 'http://localhost:3001'];
 const corsOptions = {
   origin: whitelist,
   credentials: true,

@@ -50,9 +50,10 @@ function setLikeCard(req, res, next) {
     { $addToSet: { likes: req.user._id } }, // добавление _id в массив, если его там нет
     { new: true },
   )
+    .orFail(() => new Error('NotFound'))
     .then((card) => res.send(card))
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.message === 'NotFound') {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
     })
@@ -65,9 +66,10 @@ function setDislikeCard(req, res, next) {
     { $pull: { likes: req.user._id } }, // убрать _id из массива
     { new: true },
   )
+    .orFail(() => new Error('NotFound'))
     .then((card) => res.send(card))
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.message === 'NotFound') {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
     })

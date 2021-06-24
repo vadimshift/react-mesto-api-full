@@ -35,9 +35,5 @@ export const getContent = () => {
     method: "GET",
     headers,
     credentials: 'include',
-    /* headers: {
-      ...headers,
-      Authorization: `Bearer ${token}`,
-    }, */
   }).then((res) => checkResponse(res));
 };

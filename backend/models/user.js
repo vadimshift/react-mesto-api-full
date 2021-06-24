@@ -1,24 +1,29 @@
+/* eslint-disable no-useless-escape */
 const mongoose = require('mongoose');
 const isEmail = require('validator/lib/isEmail');
+const isUrl = require('validator/lib/isURL');
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
     minlength: 2,
     maxlength: 30,
+    required: true,
     default: 'Жак-Ив Кусто',
   },
   about: {
     type: String,
     minlength: 2,
     maxlength: 30,
+    required: true,
     default: 'Исследователь',
   },
   avatar: {
     type: String,
+    required: true,
     validate: {
-      // eslint-disable-next-line no-useless-escape
-      validator: (v) => /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g.test(v),
+      validator: (v) => isUrl(v),
+      message: 'Неверный формат ссылки',
     },
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   },
@@ -34,7 +39,6 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minlength: 6,
     select: false,
   },
 });

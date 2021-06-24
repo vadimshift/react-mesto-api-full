@@ -7,7 +7,7 @@ const { validateCardBody, validateCardId } = require('../middlewares/validators'
 router.get('/cards', getCards);
 router.post('/cards', validateCardBody, createCard);
 router.delete('/cards/:cardId', validateCardId, delCard);
-router.put('/cards/likes/:cardId', validateCardId, setLikeCard);
-router.delete('/cards/likes/:cardId', validateCardId, setDislikeCard);
+router.put('/cards/:cardId/likes', validateCardId, setLikeCard);
+router.delete('/cards/:cardId/likes/', validateCardId, setDislikeCard);
 
 module.exports = router;
