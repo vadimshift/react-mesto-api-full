@@ -16,6 +16,8 @@ function createCard(req, res, next) {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные при создании карточки');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -55,6 +57,8 @@ function setLikeCard(req, res, next) {
     .catch((err) => {
       if (err.message === 'NotFound') {
         throw new NotFoundError('Карточка с указанным _id не найдена');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -71,6 +75,8 @@ function setDislikeCard(req, res, next) {
     .catch((err) => {
       if (err.message === 'NotFound') {
         throw new NotFoundError('Карточка с указанным _id не найдена');
+      } else {
+        next(err);
       }
     })
     .catch(next);

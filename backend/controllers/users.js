@@ -20,13 +20,15 @@ function getUrers(req, res, next) {
 
 function getUserById(req, res, next) {
   User.findById(req.params.userId)
+    .orFail(() => new Error('NotFound'))
     .then((user) => {
       res.send(user);
     })
-    .orFail(() => new Error('NotFound'))
     .catch((err) => {
       if (err.message === 'NotFound') {
         throw new NotFoundError('Пользователь по указанному id не найден');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -38,6 +40,8 @@ function getUser(req, res, next) {
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new NotFoundError('Пользователь по указанному id не найден');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -63,6 +67,8 @@ function createUser(req, res, next) {
       } else if
       (err.name === 'MongoError') {
         throw new DuplicateEmailError('Пользователь с таким email уже зарегистрирован');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -80,6 +86,8 @@ function updateProfile(req, res, next) {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные при обновлении профиля пользователя');
+      } else {
+        next(err);
       }
     })
     .catch(next);
@@ -97,6 +105,8 @@ function updateAvatar(req, res, next) {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные при обновлении аватара пользователя');
+      } else {
+        next(err);
       }
     })
     .catch(next);
